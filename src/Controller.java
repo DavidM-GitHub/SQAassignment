@@ -166,4 +166,16 @@ public class Controller {
 		double sq=stdDeviation/count;
 		return Math.sqrt(sq);
 	}
+	
+	//ADDS MARK FOR A SPECIFIC CRITERION TO A GRADE
+	public void addMark(StudentGrade grade, String designCriterion, int score) {
+		// TODO Auto-generated method stub
+		grade.addMark(designCriterion, score);
+	}
+	
+	//RETURNS ALL GRADES IN A RUBRIC
+	public List<StudentGrade> getAllGradesInRubric(Rubric rubric) {
+		// TODO Auto-generated method stub
+		return rubric.getGrades();
+	}
 }
