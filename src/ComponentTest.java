@@ -5,6 +5,7 @@ import org.junit.Test;
 
 public class ComponentTest {
    
+	//TESTS IF CORRECT SCORE IS ADDED FOR CRITERION ON GRADE
    @Test	
    public void testAddMarkToGrade() {
 	   String designCriterion="Design";
@@ -14,6 +15,7 @@ public class ComponentTest {
 	   assertEquals(3,grade.getScore(designCriterion));
    }
    
+   //TESTS IF EXCEPTION IS THROWN WHEN SCORE ADDED TO GRADE IS OUTSIDE VALID RANGE
    @Test(expected = IllegalArgumentException.class)	
    public void testAddInvalidMarkToGrade() {
 	   String designCriterion="Design";
