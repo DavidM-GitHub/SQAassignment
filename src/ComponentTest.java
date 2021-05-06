@@ -45,6 +45,34 @@ public class ComponentTest {
 	   controller.addCriterionToRubric(rubric, designCriterion);
 	   assertEquals("Design",rubric.getCriteria().get(0));
    }
+   
+   //TESTS IF CRITERION IS ADDED TO RUBRIC
+   @Test	
+   public void testReachedMaxCriteriaInRubric() {
+	   Rubric rubric=controller.createRubric("Construction");
+	   String designCriterion="Design";
+	   for(int i=0;i<10;i++) {
+	   controller.addCriterionToRubric(rubric, designCriterion);
+	   }
+	   assertEquals(10,rubric.getCriteria().size());
+	   controller.addCriterionToRubric(rubric, designCriterion);
+	   assertEquals(10,rubric.getCriteria().size());
+   }
+   
+   //TESTS GETTTING RUBRIC BY NAME METHOD
+   @Test	
+   public void testGetRubricByName() {
+	   Rubric rubric=controller.createRubric("Construction");
+	   Rubric rubric2=controller.getRubricByName("Construction");
+	   assertEquals("Construction",rubric2.getName());
+   }
+   
+   //TESTS GETTTING RUBRIC BY NAME THAT DOESNT EXIST
+   @Test(expected = NullPointerException.class)	
+   public void testRubricNotFound() {
+	   Rubric rubric=controller.createRubric("Construction");
+	   Rubric rubric2=controller.getRubricByName("Business");
+   }
   
 }
 

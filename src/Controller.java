@@ -26,5 +26,17 @@ public class Controller {
 		return rubrics;
 	}
 
-
+	//SEARCHES RUBRIC BY NAME 
+	public Rubric getRubricByName(String name) {
+		Rubric rubricFound=null;
+		for(Rubric rubric:rubrics) {
+			if(rubric.getName().equalsIgnoreCase(name)) {
+				rubricFound=rubric;
+			}
+		}
+		if(rubricFound==null) {
+			throw new NullPointerException();
+		}
+		return rubricFound;
+	}
 }
