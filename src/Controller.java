@@ -118,4 +118,52 @@ public class Controller {
 		return Math.sqrt(sq);
 	}
 	
+	//CALCULATES AVERAGE OF ALL SCORES IN CRITERION
+	public double getAverageForCriterion(Rubric rubric, String criterion) {
+		List<StudentGrade> grades=rubric.getGrades();
+		double sum=0;
+		double count=grades.size();
+		for(StudentGrade grade:grades) {
+			sum+=grade.getScore(criterion);
+		}
+		return sum/count;
+	}
+	
+	//CALCULATES MAXIMIUM OF ALL SCORES IN CRITERION
+	public int getMaxForCriterion(Rubric rubric, String criterion) {
+		List<StudentGrade> grades=rubric.getGrades();
+		int max=0;
+		for(StudentGrade grade:grades) {
+			if(grade.getScore(criterion)>max) {
+				max=grade.getScore(criterion);
+			}
+		}
+		return max;
+	}
+	
+	//CALCULATES MINIMUM OF ALL SCORES IN CRITERION
+	public int getMinForCriterion(Rubric rubric, String criterion) {
+		List<StudentGrade> grades=rubric.getGrades();
+		int min=6;
+		for(StudentGrade grade:grades) {
+			if(grade.getScore(criterion)<min) {
+				min=grade.getScore(criterion);
+			}
+		}
+		return min;
+	}
+	
+	//CALCULATES STANDARD DEVIATION OF ALL SCORES IN CRITERION
+	public double getStandardDeviationForCriterion(Rubric rubric, String criterion) {
+		List<StudentGrade> grades=rubric.getGrades();
+		double mean=getAverageForCriterion(rubric,criterion);
+		double stdDeviation=0;
+		int count=grades.size();
+		for(StudentGrade grade:grades) {
+				stdDeviation+= Math.pow((grade.getScore(criterion)-mean),2);
+			
+		}
+		double sq=stdDeviation/count;
+		return Math.sqrt(sq);
+	}
 }

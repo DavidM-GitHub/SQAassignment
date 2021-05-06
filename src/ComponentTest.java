@@ -157,5 +157,65 @@ public class ComponentTest {
 	   StudentGrade grade2=controller.createStudentGrade(rubric,"adam",3);
 	   assertEquals(0.5,controller.getStandardDeviationForRubric(rubric),0.001);
    }
+   
+   //TESTS IF AVERAGE OF EVERY SCORE IN CRITERION IS CALCULATED CORRECTLY
+   @Test	
+   public void testAverageForCriterion() {
+	   Rubric rubric=controller.createRubric("Construction");
+	   String designCriterion="Design";
+	   String testingCriterion="Testing";
+	   controller.addCriterionToRubric(rubric, designCriterion);
+	   controller.addCriterionToRubric(rubric, testingCriterion);
+	   StudentGrade grade=controller.createStudentGrade(rubric,"dave",4);
+	   StudentGrade grade2=controller.createStudentGrade(rubric,"adam",3);
+	   grade2.addMark(designCriterion,2);
+	   StudentGrade grade3=controller.createStudentGrade(rubric,"paddy",5);
+	   assertEquals(3.66,controller.getAverageForCriterion(rubric,designCriterion),0.01);
+   }
+   
+   //TESTS IF MAXIMUM OF EVERY SCORE IN CRITERION IS CALCULATED CORRECTLY
+   @Test	
+   public void testMaxForCriterion() {
+	   Rubric rubric=controller.createRubric("Construction");
+	   String designCriterion="Design";
+	   String testingCriterion="Testing";
+	   controller.addCriterionToRubric(rubric, designCriterion);
+	   controller.addCriterionToRubric(rubric, testingCriterion);
+	   StudentGrade grade=controller.createStudentGrade(rubric,"dave",4);
+	   StudentGrade grade2=controller.createStudentGrade(rubric,"adam",3);
+	   grade2.addMark(designCriterion,2);
+	   StudentGrade grade3=controller.createStudentGrade(rubric,"paddy",5);
+	   assertEquals(5,controller.getMaxForCriterion(rubric,designCriterion),0.01);
+   }
+   
+   //TESTS IF MINIMUM OF EVERY SCORE IN CRITERION IS CALCULATED CORRECTLY
+   @Test	
+   public void testMinForCriterion() {
+	   Rubric rubric=controller.createRubric("Construction");
+	   String designCriterion="Design";
+	   String testingCriterion="Testing";
+	   controller.addCriterionToRubric(rubric, designCriterion);
+	   controller.addCriterionToRubric(rubric, testingCriterion);
+	   StudentGrade grade=controller.createStudentGrade(rubric,"dave",4);
+	   StudentGrade grade2=controller.createStudentGrade(rubric,"adam",3);
+	   grade2.addMark(designCriterion,2);
+	   StudentGrade grade3=controller.createStudentGrade(rubric,"paddy",5);
+	   assertEquals(2,controller.getMinForCriterion(rubric,designCriterion),0.01);
+   }
+   
+   //TESTS IF STANDARD DEVIATION OF EVERY SCORE IN CRITERION IS CALCULATED CORRECTLY
+   @Test	
+   public void testStandardDeviationForCriterion() {
+	   Rubric rubric=controller.createRubric("Construction");
+	   String designCriterion="Design";
+	   String testingCriterion="Testing";
+	   controller.addCriterionToRubric(rubric, designCriterion);
+	   controller.addCriterionToRubric(rubric, testingCriterion);
+	   StudentGrade grade=controller.createStudentGrade(rubric,"dave",4);
+	   StudentGrade grade2=controller.createStudentGrade(rubric,"adam",3);
+	   grade2.addMark(designCriterion,2);
+	   StudentGrade grade3=controller.createStudentGrade(rubric,"paddy",5);
+	   assertEquals(1.24,controller.getStandardDeviationForCriterion(rubric,designCriterion),0.01);
+   }
 }
 
