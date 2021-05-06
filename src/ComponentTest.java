@@ -1,5 +1,7 @@
 import static org.junit.Assert.assertEquals;
 
+import java.util.HashMap;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -72,6 +74,21 @@ public class ComponentTest {
    public void testRubricNotFound() {
 	   Rubric rubric=controller.createRubric("Construction");
 	   Rubric rubric2=controller.getRubricByName("Business");
+   }
+   
+   //TESTS CREATING STUDENT GRADE IN A RUBRIC
+   @Test	
+   public void testCreateStudentGrade() {
+	   Rubric rubric=controller.createRubric("Construction");
+	   String designCriterion="Design";
+	   String testingCriterion="Testing";
+	   controller.addCriterionToRubric(rubric, designCriterion);
+	   controller.addCriterionToRubric(rubric, testingCriterion);
+	   StudentGrade grade=controller.createStudentGrade(rubric,"dave",4);
+	   HashMap<String, Integer> marks=rubric.getGrades().get(0).getMarks();
+	   assertEquals(new Integer(4),marks.get(designCriterion));
+	   assertEquals(new Integer(4),marks.get(testingCriterion));
+	   assertEquals("dave",grade.getName());
    }
   
 }

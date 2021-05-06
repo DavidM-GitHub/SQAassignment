@@ -39,4 +39,19 @@ public class Controller {
 		}
 		return rubricFound;
 	}
+	
+	//CREATES STUDENT GRADE ADDING SCORE TO EACH CRITERION IN A RUBRIC
+	public StudentGrade createStudentGrade(Rubric rubric, String name, int score) {
+		StudentGrade grade=new StudentGrade(name);
+		//for criterion in rubric
+		List<String> criteria=rubric.getCriteria();
+		for(String criterion:criteria) {
+			//add mark to grade
+			grade.addMark(criterion,score);
+		}		
+		//add grade to rubric
+		rubric.addStudentGrade(grade);
+		
+		return grade;
+	}
 }
