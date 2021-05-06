@@ -91,5 +91,19 @@ public class ComponentTest {
 	   assertEquals("dave",grade.getName());
    }
   
+   //TESTS IF GRADES WERE ADDED TO RUBRIC SUCCESSFULLY
+   @Test	
+   public void testGetGradesInRubric() {
+	   Rubric rubric=controller.createRubric("Construction");
+	   String designCriterion="Design";
+	   String testingCriterion="Testing";
+	   controller.addCriterionToRubric(rubric, designCriterion);
+	   controller.addCriterionToRubric(rubric, testingCriterion);
+	   StudentGrade grade=controller.createStudentGrade(rubric,"dave",4);
+	   StudentGrade grade2=controller.createStudentGrade(rubric,"adam",3);
+	   assertEquals(2,rubric.getGrades().size());
+	   assertEquals("dave",rubric.getGrades().get(0).getName());
+	   assertEquals("adam",rubric.getGrades().get(1).getName());
+   }
 }
 
