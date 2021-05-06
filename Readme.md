@@ -112,6 +112,7 @@ It is important to review the code changed on Pull Requests instead of clicking 
 - Is the code well spaced out and easy to read?
 - Is there sufficient comments explaining the code so its easy for other programmers to understand?
 - Is the code seperated out into appropriate classes or is it all jumbled up into one big class?  
+
 You should ask yourself these questions when reviewing code and be sure to voice your concern by commenting on the Pull Request if any of these things are not being followed as displayed <a href="https://github.com/DavidM-GitHub/SQAassignment/pull/3#pullrequestreview-653259799">here</a>. 
 
 
