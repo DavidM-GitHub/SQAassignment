@@ -113,11 +113,18 @@ It is important to review the code changed on Pull Requests instead of clicking 
 - Is there sufficient comments explaining the code so its easy for other programmers to understand?
 - Is the code seperated out into appropriate classes or is it all jumbled up into one big class?  
 
-You should ask yourself these questions when reviewing code and be sure to voice your concern by commenting on the Pull Request if any of these things are not being followed as displayed <a href="https://github.com/DavidM-GitHub/SQAassignment/pull/3#pullrequestreview-653259799">here</a>. 
+You should ask yourself these questions when reviewing code and be sure to voice your concern by commenting on the Pull Request if any of these things are not being followed as displayed <a href="https://github.com/DavidM-GitHub/SQAassignment/pull/3#pullrequestreview-653259799">here</a>.  
+
+## Retrospective
+### What went well
+- Followed git flow process relatively well and gained some good experience from it.
+- Gained a much better undertstanding of Test Driven Development.
+- Achieved good test coverage according to the the coverage tool used.
+- Code reviews on Pull Requests were thorough and identified anything that needed to be changed.
+### What I would do differently
+- Spend more time on task estimation as some of the tasks took a bit longer than expected.  
 
 
-
-</br>
 
 ## References
 [1] https://www.eclemma.org/jacoco/
