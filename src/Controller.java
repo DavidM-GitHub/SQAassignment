@@ -54,4 +54,68 @@ public class Controller {
 		
 		return grade;
 	}
+	
+	//CALCULATES AVERAGE OF ALL SCORES IN RUBRIC
+	public double getAverageForRubric(Rubric rubric) {
+		List<StudentGrade> grades=rubric.getGrades();
+		double sum=0;
+		double count=0;
+		for(StudentGrade grade:grades) {
+			HashMap<String, Integer> marks=grade.getMarks();
+			count+=marks.size();
+			for(int i:marks.values()) {
+				System.out.println("score: "+i);
+				sum+=i;
+			}
+		}
+		return sum/count;
+	}
+	
+	//CALCULATES MAXIMIUM OF ALL SCORES IN RUBRIC
+	public int getMaxForRubric(Rubric rubric) {
+		List<StudentGrade> grades=rubric.getGrades();
+		int max=0;
+		for(StudentGrade grade:grades) {
+			HashMap<String, Integer> marks=grade.getMarks();
+			for(int i:marks.values()) {
+				if(i>max) {
+					max=i;
+				}
+			}
+		}
+		return max;
+	}
+	
+	//CALCULATES MINIMUM OF ALL SCORES IN RUBRIC
+	public int getMinForRubric(Rubric rubric) {
+		List<StudentGrade> grades=rubric.getGrades();
+		int min=6;
+		for(StudentGrade grade:grades) {
+			HashMap<String, Integer> marks=grade.getMarks();
+			for(int i:marks.values()) {
+				if(i<min) {
+					min=i;
+				}
+			}
+		}
+		return min;
+	}
+	
+	//CALCULATES STANDARD DEVIATION OF ALL SCORES IN RUBRIC
+	public double getStandardDeviationForRubric(Rubric rubric) {
+		List<StudentGrade> grades=rubric.getGrades();
+		double mean=getAverageForRubric(rubric);
+		double stdDeviation=0;
+		int count=0;
+		for(StudentGrade grade:grades) {
+			HashMap<String, Integer> marks=grade.getMarks();
+			count+=marks.size();
+			for(int i:marks.values()) {
+				stdDeviation+= Math.pow((i-mean),2);
+			}
+		}
+		double sq=stdDeviation/count;
+		return Math.sqrt(sq);
+	}
+	
 }

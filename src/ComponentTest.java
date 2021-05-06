@@ -105,5 +105,57 @@ public class ComponentTest {
 	   assertEquals("dave",rubric.getGrades().get(0).getName());
 	   assertEquals("adam",rubric.getGrades().get(1).getName());
    }
+   
+   //TESTS IF AVERAGE OF EVERY SCORE IN RUBRIC IS CALCULATED CORRECTLY
+   @Test	
+   public void testAverageForRubric() {
+	   Rubric rubric=controller.createRubric("Construction");
+	   String designCriterion="Design";
+	   String testingCriterion="Testing";
+	   controller.addCriterionToRubric(rubric, designCriterion);
+	   controller.addCriterionToRubric(rubric, testingCriterion);
+	   StudentGrade grade=controller.createStudentGrade(rubric,"dave",4);
+	   StudentGrade grade2=controller.createStudentGrade(rubric,"adam",3);
+	   assertEquals(3.5,controller.getAverageForRubric(rubric),0.001);
+   }
+   
+   //TESTS IF MAXIMUM OF EVERY SCORE IN RUBRIC IS CALCULATED CORRECTLY
+   @Test	
+   public void testMaxForRubric() {
+	   Rubric rubric=controller.createRubric("Construction");
+	   String designCriterion="Design";
+	   String testingCriterion="Testing";
+	   controller.addCriterionToRubric(rubric, designCriterion);
+	   controller.addCriterionToRubric(rubric, testingCriterion);
+	   StudentGrade grade=controller.createStudentGrade(rubric,"dave",4);
+	   StudentGrade grade2=controller.createStudentGrade(rubric,"adam",3);
+	   assertEquals(4,controller.getMaxForRubric(rubric),0.001);
+   }
+   
+   //TESTS IF MINIMUM OF EVERY SCORE IN RUBRIC IS CALCULATED CORRECTLY
+   @Test	
+   public void testMinForRubric() {
+	   Rubric rubric=controller.createRubric("Construction");
+	   String designCriterion="Design";
+	   String testingCriterion="Testing";
+	   controller.addCriterionToRubric(rubric, designCriterion);
+	   controller.addCriterionToRubric(rubric, testingCriterion);
+	   StudentGrade grade=controller.createStudentGrade(rubric,"dave",4);
+	   StudentGrade grade2=controller.createStudentGrade(rubric,"adam",3);
+	   assertEquals(3,controller.getMinForRubric(rubric),0.001);
+   }
+   
+   //TESTS IF STANDARD DEVIATION OF EVERY SCORE IN RUBRIC IS CALCULATED CORRECTLY
+   @Test	
+   public void testStandardDeviationForRubric() {
+	   Rubric rubric=controller.createRubric("Construction");
+	   String designCriterion="Design";
+	   String testingCriterion="Testing";
+	   controller.addCriterionToRubric(rubric, designCriterion);
+	   controller.addCriterionToRubric(rubric, testingCriterion);
+	   StudentGrade grade=controller.createStudentGrade(rubric,"dave",4);
+	   StudentGrade grade2=controller.createStudentGrade(rubric,"adam",3);
+	   assertEquals(0.5,controller.getStandardDeviationForRubric(rubric),0.001);
+   }
 }
 
