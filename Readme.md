@@ -92,14 +92,32 @@ Note the overall coverage of my project is **82.2%**, this is quite high but rea
 
 ### Second Run
 The two methods **addMark** and **getAllGradesInRubric** had been identified by the code coverage tool as not being tested so in light of this I added two more tests and ran the tool again.  
-This is the result I got.  
+This is the result I got.</br>
+
 ![](2021-05-06-16-12-08.png)</br>
 ![](2021-05-06-16-12-55.png)</br>
 
 The methods that were previously highlighted red are now green.  
 The Coverage for the component class has also moved to 100%. 
 
-</br></br>
+## Code-Review Checklist
+<p align="left">
+  <img src="https://www.devteam.space/wp-content/uploads/2020/01/How-To-Find-The-Best-Software-Code-Reviewers.jpg"
+        alt="T-Shirt sizes" width="500"/>
+</p>  
+It is important to review the code changed on Pull Requests instead of clicking approve immediately and passing it off to the next person to review or merging it straight away. If code is not properly reviewed a project can get messy very quickly and if something breaks it can be quite time consuming searching through the code to find the problem. For this reason I have provided a short checklist below of things to look out for when your are reviewing code on a pull request.  
+
+- Is there sufficient unit testing for the code that is being added?
+- Does the code follow basic coding standards like CamelCase naming conventions?
+- Is the code well spaced out and easy to read?
+- Is there sufficient comments explaining the code so its easy for other programmers to understand?
+- Is the code seperated out into appropriate classes or is it all jumbled up into one big class?  
+
+You should ask yourself these questions when reviewing code and be sure to voice your concern by commenting on the Pull Request if any of these things are not being followed as displayed <a href="https://github.com/DavidM-GitHub/SQAassignment/pull/3#pullrequestreview-653259799">here</a>. 
+
+
+
+</br>
 
 ## References
 [1] https://www.eclemma.org/jacoco/
