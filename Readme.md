@@ -53,6 +53,19 @@ In order to calculate sprint velocity you must:
 Note that I have estimated the tasks above tasks using T-shirt sizes. In this case in order to calculate the sprint velocity you would need to assign numberic values to the sizes.
 Once you have a general idea of the amount of work the team can do in a certain amount of time, sprint planning becomes a lot easier and a the task estimates get more accurate.  
 
+## Test Driven Devlopment
+Throughout the development of this component I gained a lot of experience using a Test Driven Development approach to coding.  
+It gives you confidence when making changes because you know if something breaks you can run the tests and find out exactly where the problem is.  
+I coded the component bit by bit, coding some tests that originally fail and then coding the piece of functionality specified in the brief to make them pass.  
+I found this process a lot better than coding huge chunks of code and leaving the testing till the end and having to search through the code if the outcome isn't what was expected.  
+This approach of coding small pieces of functionality and supporting tests can be seen clearly <a href="https://github.com/DavidM-GitHub/SQAassignment/pull/5/commits/bb4b7357af3860f642eb82f2b953eed5d7031e04">here</a>.</br>
+In this commit I first coded tests that use a method called getRubricByName which should return a rubric based on the name passed in as a parameter.  
+If the rubric exists, the name of the rubric returned should be the same as the name that is passed in.  
+If the rubric doesnt exist, a null pointer exception is thrown which is what the testRubricNotFound is testing for.  
+The latter test actually passed originally because the getRubricByName method simply returned null but once I coded the functionality that can be seen in the commit, both tests passed. 
+
+
+
 ## Code Coverage Tool
 To ensure that I had sufficient unit tests in place for the software component I created, I used the code coverage tool known as Jacoco.  
 "JaCoCo is a free code coverage library for Java, which has been created by the EclEmma team based on the lessons learned from using and integration existing libraries for many years."[1]  
