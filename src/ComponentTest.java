@@ -217,5 +217,30 @@ public class ComponentTest {
 	   StudentGrade grade3=controller.createStudentGrade(rubric,"paddy",5);
 	   assertEquals(1.24,controller.getStandardDeviationForCriterion(rubric,designCriterion),0.01);
    }
+   
+   //TESTS IF CONTROLLER ADDS MARK TO CRITERION
+   @Test	
+   public void testControllerAddScoreToCriterion() {
+	   String designCriterion="Design";
+	   StudentGrade grade=new StudentGrade("dave");
+	   controller.addMark(grade,designCriterion,3);
+	   assertEquals(1,grade.getMarks().size());
+	   assertEquals(3,grade.getScore(designCriterion));
+   }
+   
+   //TESTS IF CONTROLLER RETRIEVES ALL GRADES FOR A SPECIFIC RUBRIC
+   @Test	
+   public void testControllerGetGradesInRubric() {
+	   Rubric rubric=controller.createRubric("Construction");
+	   String designCriterion="Design";
+	   String testingCriterion="Testing";
+	   controller.addCriterionToRubric(rubric, designCriterion);
+	   controller.addCriterionToRubric(rubric, testingCriterion);
+	   StudentGrade grade=controller.createStudentGrade(rubric,"dave",4);
+	   StudentGrade grade2=controller.createStudentGrade(rubric,"adam",3);
+	   assertEquals(2,controller.getAllGradesInRubric(rubric).size());
+	   assertEquals("dave",controller.getAllGradesInRubric(rubric).get(0).getName());
+	   assertEquals("adam",controller.getAllGradesInRubric(rubric).get(1).getName());
+   }
 }
 

@@ -51,7 +51,59 @@ In order to calculate sprint velocity you must:
 </p>
 
 Note that I have estimated the tasks above tasks using T-shirt sizes. In this case in order to calculate the sprint velocity you would need to assign numberic values to the sizes.
-Once you have a general idea of the amount of work the team can do in a certain amount of time, sprint planning becomes a lot easier and a the task estimates get more accurate.
+Once you have a general idea of the amount of work the team can do in a certain amount of time, sprint planning becomes a lot easier and a the task estimates get more accurate.  
+
+## Code Coverage Tool
+To ensure that I had sufficient unit tests in place for the software component I created, I used the code coverage tool known as Jacoco.  
+"JaCoCo is a free code coverage library for Java, which has been created by the EclEmma team based on the lessons learned from using and integration existing libraries for many years."[1]  
+<p align="left">
+  <img src="https://avatars.githubusercontent.com/u/1939631?v=4"
+        alt="T-Shirt sizes" width="500"/>
+</p>  
+It is really easy to install and is a very efficient way of helping you spot gaps in your test coverage. </br>
+The editor I use is Eclipse IDE, Jacoco can be installed through Eclispe by following the steps below.  
+
+### Installation Instructions
+- Once in Eclipse click **Help** near the top left of the screen.
+- Navigate to **Eclipse Marketplace** in the dropdown menu.
+- Type **EclEmma** into the search box and hit enter.
+<p align="left">
+  <img src="https://www.codeproject.com/KB/java/832744/Marketplace.PNG"
+        alt="T-Shirt sizes" width="500"/>
+</p>  
+
+### How To Use
+In order to run the tool then, do the following
+- Right click your project.
+- Navigate to **Coverage as**.
+- Click **JUnit Test**.
+
+### First Run  
+![](2021-05-06-15-20-45.png) </br> 
+As you can see from the screenshot above, it gives you details regarding the Code Coverage Percentage as well as the number of Covered Instructions, Missed Instructions and Total Instructions of both the project as a whole and the individual files in the project.</br>
+
+![](2021-05-06-15-30-21.png)  </br>
+
+The screenshots above were taken after the first time the tool was run on my project.  
+It is easy to identify which parts of the code are being tested and which parts are not.  
+The code that **is tested** is clearly highlighted in **Green**.
+The code that is **not tested** is clearly highlighted in **Red**.  </br>
+Note the overall coverage of my project is **82.2%**, this is quite high but realistically it is actually much higher because I've included a Caller class in my project to give a full demonstration of how the controller component is used, this code shouldn't need to be tested as it is only using the methods of the controller class which I have already provided tests for.  
+
+### Second Run
+The two methods **addMark** and **getAllGradesInRubric** had been identified by the code coverage tool as not being tested so in light of this I added two more tests and ran the tool again.  
+This is the result I got.  
+![](2021-05-06-16-12-08.png)</br>
+![](2021-05-06-16-12-55.png)</br>
+
+The methods that were previously highlighted red are now green.  
+The Coverage for the component class has also moved to 100%. 
+
+</br></br>
+
+## References
+[1] https://www.eclemma.org/jacoco/
+
 
 
  
